@@ -12,9 +12,9 @@ import javax.persistence.Table;
 public class Quiz {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY) 
-    private long id;
+    private Long id;
     @Column(name = "id_course")
-    private long id_course;
+    private Long idCourse;
     @Column(name = "question")
     private String question;
     @Column(name = "ans1")
@@ -32,8 +32,8 @@ public class Quiz {
 
     }
   
-    public Quiz(long id_course,String question,String ans1,String ans2,String ans3,String ans4,int ans) {
-        this.id_course = id_course;
+    public Quiz(Long idCourse,String question,String ans1,String ans2,String ans3,String ans4,int ans) {
+        this.idCourse = idCourse;
         this.question = question;
         this.ans1 = ans1;
         this.ans2 = ans2;
@@ -56,7 +56,7 @@ public class Quiz {
     public String getAns4() {
         return ans4;
     }
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public String getQuestion() {
@@ -80,10 +80,24 @@ public class Quiz {
     public void setQuestion(String question) {
         this.question = question;
     }
-    public long getId_course() {
-        return id_course;
+    public Long getIdCourse() {
+        return idCourse;
     }
-    public void setId_course(long id_course) {
-        this.id_course = id_course;
+    public void setIdCourse(Long idCourse) {
+        this.idCourse = idCourse;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", idCourse='" + getIdCourse() + "'" +
+            ", question='" + getQuestion() + "'" +
+            ", ans1='" + getAns1() + "'" +
+            ", ans2='" + getAns2() + "'" +
+            ", ans3='" + getAns3() + "'" +
+            ", ans4='" + getAns4() + "'" +
+            ", ans='" + getAns() + "'" +
+            "}";
     }
 }

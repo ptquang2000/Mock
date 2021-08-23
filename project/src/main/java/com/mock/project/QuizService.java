@@ -15,7 +15,7 @@ public class QuizService {
     }
   
     public List<Quiz> getAllQuiz(long id_course) {
-      return quizRepository.findByid_course(id_course);
+      return quizRepository.findByIdCourse(id_course);
     }
 
     public Quiz getQuizById(long id){
