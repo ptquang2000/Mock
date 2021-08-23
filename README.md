@@ -24,16 +24,17 @@ Adding a new quiz
 Auth
 >{
 >  "username" : "admin", <br>
->  "password" : 1
+>  "password" : 1 <br>
 >}
 #### REQUEST BODY
 Course
->{
+>{ <br>
 >  "id": `course-id`, <br>
 >  "name": `course-name` <br>
 >}
+<br>
 Quiz
->{ 
+>{ <br>
 >    "id" : `quiz-id`, <br>
 >    "idCourse": `course-id`, <br>
 >    "question": `quiz-question`, <br>
@@ -41,7 +42,7 @@ Quiz
 >    "ans2" : `quiz-choice-2`, <br>
 >    "ans3" : `quiz-choice-3`, <br>
 >    "ans4" : `quiz-choice-4`, <br>
->    "ans" : `quiz-answer (must be between 1 and 4)` 
+>    "ans" : `quiz-answer (must be between 1 and 4)` <br>
 >}
 ## OTHER
 To use Sql Server **MUST** use Sql Server Authentication with:
