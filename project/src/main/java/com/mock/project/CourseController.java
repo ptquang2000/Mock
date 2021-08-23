@@ -24,6 +24,11 @@ public class CourseController {
     public Course getCourseById(@RequestBody Long id) {
         return courseService.getCourseById(id);
     }
+
+    @RequestMapping("/courses/add")
+    public Course addCourse(@RequestBody Course course) {
+        return courseService.addCourse(course);
+    }
   
     @ExceptionHandler(SQLServerException.class)
     public String sqlExceptionHandler(SQLServerException e){
