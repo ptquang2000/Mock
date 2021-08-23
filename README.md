@@ -32,7 +32,6 @@ Course
 >  "id": `course-id`, <br>
 >  "name": `course-name` <br>
 >}
-<br>
 Quiz
 >{ <br>
 >    "id" : `quiz-id`, <br>
