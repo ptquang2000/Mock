@@ -21,18 +21,18 @@ http://localhost:8080/quiz/add
 Adding a new quiz
 
 #### REQUEST HEADER (if needed)
-Auth
+######Auth
 >{
 >  "username" : "admin", <br>
 >  "password" : 1 <br>
 >}
 #### REQUEST BODY
-Course
+###### Course
 >{ <br>
 >  "id": `course-id`, <br>
 >  "name": `course-name` <br>
 >} <br>
-Quiz
+###### Quiz
 >{ <br>
 >    "id" : `quiz-id`, <br>
 >    "idCourse": `course-id`, <br>
