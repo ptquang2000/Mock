@@ -29,8 +29,8 @@ public class QuizController implements Serializable{
     }
 
     @RequestMapping(value="/quiz", method=RequestMethod.POST)
-    public quiz addQuiz(@RequestBody Quiz quiz){
-        quiz _quiz = quizService.getquizByType(quiz.getquizType());
+    public Quiz addQuiz(@RequestBody Quiz quiz){
+        Quiz _quiz = quizService.getquizByType(quiz.getquizType());
         return  (_quiz != null) ? _quiz : quizService.addquiz(
             new Quiz(quiz.getId_course(),quiz.getQuestion(),quiz.getAns1(),quiz.getAns2(),quiz.getAns3(),quiz.getAns4(),quiz.getAns()));
     }

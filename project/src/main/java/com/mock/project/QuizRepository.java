@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public class QuizRepository extends JpaRepository<Quiz, Long>{
+public interface QuizRepository extends JpaRepository<Quiz, Long>{
     List<Quiz> findByid_course(long id_course);
+
+    static Quiz update(Quiz quiz) {
+        return null;
+    }
 }

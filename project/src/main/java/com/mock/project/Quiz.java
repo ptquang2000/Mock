@@ -1,5 +1,11 @@
 package com.mock.project;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table (name="quiz")
@@ -7,19 +13,19 @@ public class Quiz {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY) 
     private long id;
-    @column
+    @Column(name = "id_course")
     private long id_course;
-    @Column
+    @Column(name = "question")
     private String question;
-    @Column
+    @Column(name = "ans1")
     private String ans1;
-    @Column
+    @Column(name = "ans2")
     private String ans2;
-    @Column
+    @Column(name = "ans3")
     private String ans3;
-    @Column
+    @Column(name = "ans4")
     private String ans4;
-    @Column
+    @Column(name = "ans")
     private int ans;
     
     public Quiz(){
