@@ -21,7 +21,7 @@ http://localhost:8080/quiz/add
 Adding a new quiz
 
 #### REQUEST HEADER (if needed)
-######Auth
+###### Auth
 >{
 >  "username" : "admin", <br>
 >  "password" : 1 <br>
