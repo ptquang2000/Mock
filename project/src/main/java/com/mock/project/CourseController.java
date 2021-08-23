@@ -21,11 +21,6 @@ public class CourseController {
         return courseService.getAllCourses();
     }
 
-    // @RequestMapping("/courses/{id}")
-    // public Course getCourseById(@PathVariable Long id) {
-    //     return courseService.getCourseById(id);
-    // }
-
     @RequestMapping(value = "/courses/add", method = RequestMethod.POST)
     public Course addCourse(@RequestBody Course course) {
         return courseService.addCourse(course);
