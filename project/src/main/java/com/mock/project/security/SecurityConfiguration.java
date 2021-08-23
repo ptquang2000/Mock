@@ -1,4 +1,4 @@
-package com.mock.project.validation;
+package com.mock.project.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,10 +29,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-    .antMatchers(HttpMethod.POST, "/category").hasRole("ADMIN")
-    .antMatchers(HttpMethod.POST, "/manufacturer").hasRole("ADMIN")
-    .antMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
-    .antMatchers("/administrator").authenticated()
+    .antMatchers(HttpMethod.POST, "/course/quiz").hasRole("ADMIN")
+    // .antMatchers("/admin").authenticated()
     .and()
     .httpBasic()
     .and()

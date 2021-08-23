@@ -1,4 +1,4 @@
-package com.mock.project.validation;
+package com.mock.project.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,9 +14,9 @@ public class MyUserDetailService implements UserDetailsService{
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Administrator administrator = administratorRepository.findByusername(username);
-    if (administrator == null) throw new UsernameNotFoundException(username);
-    return new MyUserDetails(administrator);
+    Admin admin = administratorRepository.findByusername(username);
+    if (admin == null) throw new UsernameNotFoundException(username);
+    return new MyUserDetails(admin);
   }
   
 }
