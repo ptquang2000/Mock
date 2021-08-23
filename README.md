@@ -2,23 +2,23 @@
 Mock
 ## Rest Api
 #### GET METHOD
+Get all courses
 ```
 http://localhost:8080/courses
 ```
-Get all courses
+Get all quizes which belong to course having `{course-id}`
 ```
 http://localhost:8080/course/{course-id}
 ```
-Get all quizes which belong to course having `{course-id}`
-#### POST METHOD
+#### POST, PUT, DELETE METHOD
+For course table:
 ```
-http://localhost:8080/courses/add
+http://localhost:8080/courses
 ```
-Adding a new course
+For quiz table:
 ```
-http://localhost:8080/quiz/add
+http://localhost:8080/quiz
 ```
-Adding a new quiz
 
 #### REQUEST HEADER (if needed)
 ###### Auth
