@@ -9,6 +9,16 @@
       "mainClass": "com.assignment.springboot.Application",
       "projectName": "spring-boot",
       "args": ""
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ProjectApplication<project>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.mock.project.ProjectApplication",
+      "projectName": "project",
+      "args": ""
     }
   ]
 }
