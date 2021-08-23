@@ -1,4 +1,4 @@
-package com.mock.project.validation;
+package com.mock.project.security;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,28 +10,28 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class MyUserDetails implements UserDetails{
 
-  private Administrator administrator;
+  private Admin admin;
 
-  public MyUserDetails(Administrator administrator){
-    this.administrator = administrator;
+  public MyUserDetails(Admin admin){
+    this.admin = admin;
   }
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    SimpleGrantedAuthority authority = new SimpleGrantedAuthority(administrator.getAdministratorRole());
+    SimpleGrantedAuthority authority = new SimpleGrantedAuthority(admin.getAdministratorRole());
     return Arrays.asList(authority);
   }
 
   @Override
   public String getPassword() {
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-    String encodedPassword = encoder.encode(administrator.getPassword());
+    String encodedPassword = encoder.encode(admin.getPassword());
     return encodedPassword;
   }
 
   @Override
   public String getUsername() {
-    return administrator.getUsername();
+    return admin.getUsername();
   }
 
   @Override
@@ -55,7 +55,7 @@ public class MyUserDetails implements UserDetails{
   }
 
   public String getPlainPassword(){
-    return administrator.getPassword();
+    return admin.getPassword();
   }
   
 }
