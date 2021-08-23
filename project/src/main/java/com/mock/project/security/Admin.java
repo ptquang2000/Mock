@@ -13,20 +13,20 @@ public class Admin {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long administratorID;
+  private Long id;
   @Column(name = "username")
   private String username;
   @Column(name = "password")
   private String password;
   @Column(name = "user_role")
-  private String administratorRole;
+  private String userRole;
 
   public Long getAdministratorID() {
-    return this.administratorID;
+    return this.id;
   }
 
-  public void setAdministratorID(Long administratorID) {
-    this.administratorID = administratorID;
+  public void setAdministratorID(Long id) {
+    this.id = id;
   }
 
   public String getUsername() {
@@ -46,11 +46,11 @@ public class Admin {
   }
 
   public String getAdministratorRole() {
-    return this.administratorRole;
+    return this.userRole;
   }
 
-  public void setAdministratorRole(String administratorRole) {
-    this.administratorRole = administratorRole;
+  public void setAdministratorRole(String userRole) {
+    this.userRole = userRole;
   }
   
 }
