@@ -22,7 +22,7 @@ Adding a new quiz
 
 #### REQUEST HEADER (if needed)
 ###### Auth
->{
+>{ <br>
 >  "username" : "admin", <br>
 >  "password" : 1 <br>
 >}
@@ -46,6 +46,6 @@ Adding a new quiz
 ## OTHER
 To use Sql Server **MUST** use Sql Server Authentication with:
 <br>
-Login: `mock`
+>Login: `mock`
 <br>
-Password: `pass`
+>Password: `pass`
