@@ -21,9 +21,19 @@ public class CourseController {
         return courseService.getAllCourses();
     }
 
-    @RequestMapping(value = "/courses/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/courses", method = RequestMethod.POST)
     public Course addCourse(@RequestBody Course course) {
         return courseService.addCourse(course);
+    }
+
+    @RequestMapping(value = "/courses", method = RequestMethod.PUT)
+    public Course updatCourse(@RequestBody Course course) {
+        return courseService.updateCourse(course);
+    }
+
+    @RequestMapping(value = "/courses", method = RequestMethod.DELETE)
+    public void deleteCourse(@RequestBody Course course) {
+       courseService.deleteCourse(course);
     }
   
     @ExceptionHandler(SQLServerException.class)

@@ -17,11 +17,17 @@ public class CourseService {
         return courses;
     }
 
-    public Course getCourseById(Long id) {
-        return courseRepository.findById(id).get();
-    }
-
     public Course addCourse(Course course) {
         return courseRepository.save(course);
     } 
+
+    public Course updateCourse(Course course) {
+        if (courseRepository.findById(course.getId()).isEmpty())
+            return null;
+        return courseRepository.save(course);
+    }
+
+    public void deleteCourse(Course course){
+       courseRepository.delete(course);
+    }
 }

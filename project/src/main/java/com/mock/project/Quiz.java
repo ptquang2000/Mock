@@ -15,15 +15,15 @@ public class Quiz {
     private Long id;
     @Column(name = "id_course")
     private Long idCourse;
-    @Column(name = "question")
+    @Column(name = "question", columnDefinition = "ntext")
     private String question;
-    @Column(name = "ans1")
+    @Column(name = "ans1", columnDefinition = "ntext")
     private String ans1;
-    @Column(name = "ans2")
+    @Column(name = "ans2", columnDefinition = "ntext")
     private String ans2;
-    @Column(name = "ans3")
+    @Column(name = "ans3", columnDefinition = "ntext")
     private String ans3;
-    @Column(name = "ans4")
+    @Column(name = "ans4", columnDefinition = "ntext")
     private String ans4;
     @Column(name = "ans")
     private int ans;

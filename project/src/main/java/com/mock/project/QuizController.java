@@ -29,13 +29,23 @@ public class QuizController implements Serializable{
         return e.getMessage();
     }
 
-    @RequestMapping(value="/quiz/add", method=RequestMethod.POST)
+    @RequestMapping(value="/quiz", method=RequestMethod.POST)
     public Quiz addQuiz(@RequestBody Quiz quiz){
         return quizService.addQuiz(quiz);
     }
 
+    @RequestMapping(value="/quiz", method=RequestMethod.PUT)
+    public Quiz updateQuiz(@RequestBody Quiz quiz){
+        return quizService.updateQuiz(quiz);
+    }
+
+    @RequestMapping(value="/quiz", method=RequestMethod.DELETE)
+    public void deleteQuiz(@RequestBody Quiz quiz){
+        quizService.deleteQuiz(quiz);
+    }
+
     @RequestMapping(value="/courses/{id_course}", method=RequestMethod.GET)
-    public ArrayList<Quiz> printAllQuiz(@PathVariable Long id_course){
+    public ArrayList<Quiz> getAllQuizzesByCourseId(@PathVariable Long id_course){
         ArrayList<Quiz> list = new ArrayList<>(quizService.getAllQuiz(id_course));
         return list;
     }
