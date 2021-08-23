@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+	<meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/product-detail.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product detail</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>Products</h1>
+			<nav class="cart-nav">
+				<a href="/cart"> 
+					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					view cart
+					<span class="cartCounter">0</span>
+				</a>
+			</nav>
+			<div class="cart-notification">
+				<div class="arrow-up"></div>
+				Successfully add to cart !
+			</div>
+    </header>
+    
+    <main>
+    
+		<div class="product product-img">
+          <img th:src="'/images/' + ${product.imageFileName}" th:alt="${product.productName}"
+						th:title="${product.productName}"></img>
+        </div>
+        <div class="product product-info" th:id="${product.productID}">
+          <h2 th:text="${product.productName}"></h2>
+          <div class="product-description" th:text="${product.productDescription}"></div>
+          <div class="product-details">
+            <div class="row one">
+              <span class="detail-title">Item Code :</span>
+              <span class="detail-data item-code" th:text="${product.productID}"></span>
+            </div>
+            <div class="row two">
+              <span class="detail-title">Manufacture :</span>
+              <span class="detail-data manufacture" th:text="${product.manufacturer.manufacturerName}"></span>
+            </div>
+            <div class="row three">
+              <span class="detail-title">Category :</span>
+              <span class="detail-data category" th:text="${product.category.categoryType}"></span>
+            </div>
+            <div class="row four">
+              <span class="detail-title">Available units in stock :</span>
+              <span class="detail-data available-units" th:text="${product.unitInStock} + ' units in stock'"></span>
+            </div>
+            <div class="row five">
+              <span class="detail-data price" th:text="${product.unitPrice} + ' USD'">></span>
+            </div>
+          </div>
+          <div class="product-btn"> 
+            <a href="/" class="btn btn-primary">
+              <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+              Back
+            </a>
+            <a href="" class="btn btn-secondary">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              Order Now
+            </a>
+          </div>
+        </div>
+
+    </main>
+    
+  <script type="text/javascript" src="script/product-detail.js">  </script>
+  </body>
+</html>

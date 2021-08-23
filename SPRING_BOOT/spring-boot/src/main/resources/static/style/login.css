@@ -1,0 +1,40 @@
+@charset "ISO-8859-1";
+main{
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 80px 40px;
+}
+form{
+  border: 2px solid lightgrey;
+  border-radius: 4px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  margin: 0 auto;
+  width: 360px;
+}
+h2{
+  padding-top: 16px;
+  padding-left: 8px;
+  font-size: 24px;
+  font-weight: lighter;
+  background-color:#ece9e9;
+}
+form div{
+  margin: 12px auto;
+  align-items: center;
+}
+form input{
+  width: 305px;
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+form input#submit-btn{
+  width: 325px;
+  height: 35px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #22b422;
+  border: none;
+  color: white;
+}

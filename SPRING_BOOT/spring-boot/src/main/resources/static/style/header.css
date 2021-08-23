@@ -1,0 +1,64 @@
+body, div, span, h1, h2, img{
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+header{
+  background-color: #eeeeee;
+  padding: 54px;
+  max-width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+}
+header h1{
+  font-size: 64px;
+  font-weight: lighter;
+}
+header span{
+  font-size: 24px;
+}
+@media screen and (max-width: 800px){
+  header{
+    max-width: 100%;
+  } 
+}
+@media screen and (max-width: 482px){
+  header span:first-of-type{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }  
+}
+section.report{
+	position: fixed;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: grid;
+  grid-template-rows: 1fr minmax(1fr, auto);
+  min-width: 200px;
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 6px;
+}
+section.report div{
+	text-align: center;
+	display: grid;
+	grid-template-rows: repeat(2, auto);
+	color: white;
+}
+section.report div i{
+	color: white;
+	padding-top: 5px;
+	color: white;
+}
+section.report p{
+	margin: 10px;
+	color: white;
+  text-align: center;
+  line-break: strict;
+}

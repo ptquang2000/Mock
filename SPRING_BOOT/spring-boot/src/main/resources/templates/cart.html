@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/cart.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  </head>
+<body>
+  <header>
+    <h1>Cart</h1>
+    <span>All the selected products in your cart</span>
+  </header>
+  <main>
+  
+    <div class="cart-wrapper">
+      <div class="btn cart-btn">
+        <a href="" class="btn btn-primary">
+          <i class="fa fa-remove fa-xs" aria-hidden="true"></i>
+          Clear Cart
+        </a>
+        <a href="" class="btn btn-secondary">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          Check out
+        </a>
+      </div>
+      <div class="cart-inner">
+        <div class="row cart-heading">
+          <div class="col-1">Product</div>
+          <div class="col-2">Quantity</div>
+          <div class="col-3">Unit price</div>
+          <div class="col-4">Price</div>
+          <div class="col-5">Action</div>
+        </div>
+        
+        <div class="row total-price">
+          <div class="col-1"></div>
+          <div class="col-2"></div>
+          <div class="col-3">Grand Total</div>
+          <div class="col-4"></div>
+          <div class="col-5"></div>
+        </div>
+      </div>
+      <div class="btn cart-btn">
+        <a th:href="${url}" class="btn btn-third">
+          <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+          continue shopping
+        </a>
+      </div>
+    </div>
+
+  </main>
+  
+  <script type="text/javascript" src="script/cart.js"></script>
+</body>
+</html>

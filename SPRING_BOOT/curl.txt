@@ -1,0 +1,3 @@
+curl -H "Content-Type: application/json" -X POST -d {\"productID\":null,\"productName\":null,\"productDescription\":null,\"condition\":0,\"imageFileName\":null,\"unitPrice\":0,\"unitInStock\":0,\"category\":{\"categoryID\":null,\"categoryType\":null},\"manufacturer\":{\"manufacturerID\":null,\"manufacturerName\":null}} http://admin:1234@localhost:8080/products/Iphone X
+curl -H "Content-Type: application/json" -X POST -d {\"manufacturerID\":null,\"manufacturerName\":\"Google\"} http://admin:1234@localhost:8080/manufacturer
+{\"categoryID\":null,\"categoryType\":null} http://admin:1234@localhost:8080/category

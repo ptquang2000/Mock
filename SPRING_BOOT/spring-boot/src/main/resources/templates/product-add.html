@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/product-add.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>Product add</title>
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+
+    <header>
+      <h1>Products</h1>
+      <span>Add products</span>
+      <nav class="logout-nav">
+        <a href="javascript: logoutForm.submit()">logout</a>
+        <form name="logoutForm" th:action="@{/administrator/logout}" method="POST" style="display: none;">
+          <input type="submit" value="logout">
+        </form>
+      </nav>
+    </header>
+	
+    <th:block th:if="${message}">
+      <section class="report">
+        <div class="report-title" th:switch="${message}">
+          <i th:case="'Success'" class="fa fa-check-circle fa-3x" aria-hidden="true"></i>
+          <i th:case="*" class="fa fa-info-circle fa-3x" aria-hidden="true"></i>	
+          <span>Report</span>
+        </div>
+        <p th:text="${message}"></p>
+      </section>
+    </th:block>
+	
+    <main>
+      
+      <h2>Add new product</h2>
+      <hr>
+      <form class="add-product-form" th:action="@{/administrator}" th:object="${productForm}" method="POST" enctype="multipart/form-data">
+        <label for="product-name">Product name</label>
+        <input type="text" class="product-name" name="product-name" th:field="*{name}">
+        
+        <label for="product-unit-price">Unit price</label>
+        <input type="text" class="product-unit-price" name="product-unit-price" th:field="*{price}" >
+        
+        <label for="product-unit-in-stock">Units in Stock</label>
+        <input type="text" class="product-unit-in-stock" name="product-unit-in-stock"
+          placeholder="0" th:field="*{stock}" >
+        
+        <label for="product-description">Description</label>
+        <textarea class="product-description" name="product-description" th:field="*{description}" ></textarea>
+        
+        <label for="product-manufacture">Manufacturer</label>
+        <input type="text" class="product-manufacture" name="product-manufacture" th:field="*{manufacturer}" >
+        
+        <label for="product-category">Category</label>
+        <input type="text" class="product-category" name="product-category" th:field="*{category}" >
+        
+        <label for="product-condition">Condition</label>
+        <div class="radio-input">
+          <span class="radio-wrapper">
+            <input type="radio" class="radio new" name="condition" value=1 th:field="*{condition}" >
+            <label for="new">New</label>
+          </span>
+          <span class="radio-wrapper">
+            <input type="radio" class="radio old" name="condition" value=2 th:field="*{condition}" >
+            <label for="old">Old</label>
+          </span>
+          <span class="radio-wrapper">
+            <input type="radio" class="radio refurbished" name="condition" value=3 th:field="*{condition}" >
+            <label for="refurbished">Refurbished</label>
+          </span>
+        </div>
+        <label for="product-image-file">Product Image File</label>
+        <input type="file" class="product-image-file" name="product-image-file" accept="image/*" th:field="*{imageFile}" >
+        
+        <input type="submit" class="submit-btn" value="Add Product">
+      </form>
+
+    </main>
+    
+  <script type="text/javascript" src="script/product-add.js"></script>
+</body>
+</html>
