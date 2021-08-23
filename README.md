@@ -47,5 +47,4 @@ Adding a new quiz
 To use Sql Server **MUST** use Sql Server Authentication with:
 <br>
 >Login: `mock`
-<br>
 >Password: `pass`
