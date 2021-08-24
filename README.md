@@ -57,6 +57,5 @@ To use Sql Server **MUST** use Sql Server Authentication with:
 <br>
 >Login: `mock`
 >Password: `pass`
-<br>
 ###### GUIDE CREATE SQL SERVER LOGIN
 > https://kb.supremainc.com/knowledge/doku.php?id=en:1xfaq_how_to_create_a_sql_server_authentication_login_id
