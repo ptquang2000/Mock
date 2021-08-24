@@ -30,7 +30,7 @@ public class QuizService {
         return null;
       if (quiz.getAns() > 4 || quiz.getAns() < 1)
         return null;
-      if (quizRepository.findByIdCourseAndQuestionLike(quiz.getIdCourse(), quiz.getQuestion()) != null)
+      if (quizRepository.findByIdNotAndIdCourseAndQuestionLike(quiz.getId() ,quiz.getIdCourse(), quiz.getQuestion()) != null)
         return null;
       return quizRepository.save(quiz);
     }

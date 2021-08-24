@@ -11,6 +11,10 @@ Get all quizes which belong to course having `{course-id}`
 http://localhost:8080/course/{course-id}
 ```
 #### POST, PUT, DELETE METHOD
+POST, PUT request if success will respond the requested **Object**, otherwise responding **null**
+<br>
+DELETE request always respond **null**.
+<br>
 For course table:
 ```
 http://localhost:8080/courses
@@ -19,7 +23,6 @@ For quiz table:
 ```
 http://localhost:8080/quiz
 ```
-
 #### REQUEST HEADER (if needed)
 ###### Auth
 >{ <br>
