@@ -8,7 +8,7 @@ http://localhost:8080/courses
 ```
 Get all quizes which belong to course having `{course-id}`
 ```
-http://localhost:8080/course/{course-id}
+http://localhost:8080/courses/{course-id}
 ```
 #### POST, PUT, DELETE METHOD
 POST, PUT request, if success, will respond the requested **Object**, otherwise responding **null**
