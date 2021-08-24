@@ -18,6 +18,8 @@ public class CourseService {
     }
 
     public Course addCourse(Course course) {
+        if (courseRepository.findByName(course.getName()) != null)
+            return null;
         return courseRepository.save(course);
     } 
 

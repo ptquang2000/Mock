@@ -46,6 +46,12 @@ http://localhost:8080/quiz
 >&nbsp;&nbsp;"ans4" : `quiz-choice-4`, <br>
 >&nbsp;&nbsp;"ans" : `quiz-answer (must be between 1 and 4)` <br>
 >}
+#### REQUEST NOTE
+POST request requires all properties except **ID**.
+<br>
+PUT request requires all properties.
+<br>
+DELETE request only requires **ID**.
 ## OTHER
 To use Sql Server **MUST** use Sql Server Authentication with:
 <br>
