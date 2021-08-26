@@ -16,7 +16,7 @@
     <title>All Courses</title>
     <style>
         h1{
-            padding: 10px 25px;
+            padding: 2vh 2vh;
         }
 
         .container{
@@ -29,11 +29,11 @@
             font-size: 1.5em;
             background-color: #E7BDCD;
             top: 10%;
-            left: 90%;
+            right: 0vw;
         }
         .title{
             position: relative; 
-            top:7vw;
+            top: 15vh;
             /*border-style: dashed;*/
         }
         .selection{
@@ -42,11 +42,18 @@
             margin:1vw;
             border-style: groove;
         }
+        .selectionfake{
+            text-align: center;
+            left:10vw;
+            margin:1vw;
+            border-style: none;
+        }
         .courselist{
-            top: 125px;
+            top: 10vh;
             position: relative;
             display: grid;
             grid-template-columns: 0.5fr 0.5fr 0.5fr;
+            width: 100%;
         }
 
         .loginform{
@@ -102,8 +109,6 @@
             border-radius: 50%;
             text-align: center;
             font-size: 30px;
-            top: 150px;
-            left: 650px;
         }
 
         .form-to-add{
@@ -190,10 +195,7 @@
     <div class="title">
         <p style="text-align: center; font-size: 2.3em; font-family:  'Righteous'; color: #5C5D82;"><b>Select a lesson to start!</b></p>
     </div>
-
-    <div class="add-btn" sec:authorize="isAuthenticated()">
-        <i class="fa fa-plus fa-100x"></i>
-    </div>
+    
 
     <div class="courselist">
         <div class="selection" th:each="course : ${courses}" th:id="${course.id}">
@@ -203,6 +205,13 @@
                 <input type="submit" value="removeCourse">
             </form>
             <h2 th:text="${course.name}"></h2>
+        </div>
+        <div class="selectionfake">
+            <div class="row justify-content-center">
+                <div class="add-btn" sec:authorize="isAuthenticated()">
+                    <i class="fa fa-plus fa-100x"></i>
+                </div>
+            </div>
         </div>
     </div>
     
