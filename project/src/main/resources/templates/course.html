@@ -1,4 +1,4 @@
-    <!doctype html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
@@ -16,7 +16,7 @@
     <title>All Courses</title>
     <style>
         h1{
-            padding: 2vh 2vh;
+            padding: 10px 8px;
         }
 
         .container{
@@ -29,11 +29,14 @@
             font-size: 1.5em;
             background-color: #E7BDCD;
             top: 10%;
-            right: 0vw;
+            right: 10px;
         }
         .title{
-            position: relative; 
-            top: 15vh;
+            position: absolute; 
+            top: 80px;
+            display: inline-block;
+            left: 50%;
+            transform: translate(-50%, 0%);
             /*border-style: dashed;*/
         }
         .selection{
@@ -42,18 +45,16 @@
             margin:1vw;
             border-style: groove;
         }
-        .selectionfake{
-            text-align: center;
-            left:10vw;
-            margin:1vw;
-            border-style: none;
-        }
         .courselist{
-            top: 10vh;
-            position: relative;
+            position: absolute; 
+            top: 240px;
+            display: inline-block;
+            left: 50%;
+            transform: translate(-50%, 0%);
             display: grid;
             grid-template-columns: 0.5fr 0.5fr 0.5fr;
             width: 100%;
+            border-style: dashed;
         }
 
         .loginform{
@@ -101,7 +102,11 @@
         }
 
         .add-btn{
-            position: absolute;
+            position: absolute; 
+            top: 160px;
+            display: inline-block;
+            left: 50%;
+            transform: translate(-50%, 0%);
             color: white;  
             background-color: #A4D166;
             width: 42px;
@@ -195,24 +200,17 @@
     <div class="title">
         <p style="text-align: center; font-size: 2.3em; font-family:  'Righteous'; color: #5C5D82;"><b>Select a lesson to start!</b></p>
     </div>
-    
 
     <div class="courselist">
         <div class="selection" th:each="course : ${courses}" th:id="${course.id}">
             <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-            <img class="remove btn"sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
-            <form name="removeCourse" th:action="@{/remove-course}" method="POST" style="display: none;">
-                <input type="submit" value="removeCourse">
-            </form>
+            <img sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
             <h2 th:text="${course.name}"></h2>
         </div>
-        <div class="selectionfake">
-            <div class="row justify-content-center">
-                <div class="add-btn" sec:authorize="isAuthenticated()">
-                    <i class="fa fa-plus fa-100x"></i>
-                </div>
-            </div>
-        </div>
+    </div>
+    
+    <div class="add-btn" sec:authorize="isAuthenticated()">
+        <i class="fa fa-plus fa-100x"></i>
     </div>
     
     <div class="form-to-add">

@@ -5,8 +5,8 @@ courseList.addEventListener('click', e => {
   if ( selection.className == 'selection'){
     window.location.href = `http://localhost:8080?lessonID=${selection.id}`
   }
-  if (child.className == ''){
-
+  if (child.className == 'remove btn'){
+    
   }
 })
 
