@@ -96,3 +96,4 @@ GO
 select * from admin
 select * from course
 select * from quiz
+
