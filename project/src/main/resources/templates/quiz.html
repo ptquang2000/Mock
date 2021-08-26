@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/quiz.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Risque&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--Thanh menu-->
+        <div class="menu-bar">
+            <div class="logo">
+                Quizlet
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <button>Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Tiêu đề-->
+        <div class="page-title">
+            <img src="./image/image.jpg" alt="Hinh bia">
+            <div class="text">
+                <div class="title">
+                    <h1>English</h1>
+                    20 questions
+                </div>
+            </div>  
+        </div>
+        <!--câu hỏi-->
+        <div class="content">
+            <!--danh sách câu hỏi-->
+            <th:block th:each="quiz,iter : ${quizzes}">
+
+                <div class="question">
+                    <div class="q-head">
+                        <p class="num" th:text="Question + ${iter.index + 1}"></p>
+                        <p class="q-test" th:text="${quiz.question}"></p>
+                    </div>
+                    <div class="q-ans">
+                        <label class="ans">
+                            <span th:text="${quiz.ans1}" th:remove="tag"></span>
+                            <input type="radio" name="ans" id="ans1" th:value="${quiz.ans1}">
+                            <span class="q-check"></span>
+                        </label>
+                        <label class="ans">
+                            <span th:text="${quiz.ans2}" th:remove="tag"></span>
+                            <input type="radio" name="ans" id="ans2" th:value="${quiz.ans2}">
+                            <span class="q-check"></span>
+                        </label>
+                        <label class="ans">
+                            <span th:text="${quiz.ans3}" th:remove="tag"></span>
+                            <input type="radio" name="ans" id="ans3" th:value="${quiz.ans3}">
+                            <span class="q-check"></span>
+                        </label>
+                        <label class="ans">
+                            <span th:text="${quiz.ans4}" th:remove="tag"></span>
+                            <input type="radio" name="ans" id="ans4" value="${quiz.ans4}">
+                            <span class="q-check"></span>
+                        </label>
+                    </div>
+                </div>
+
+            </th:block>
+        </div>
+           
+    <script src="quiz.js"></script>
+    </body>
+</html>
