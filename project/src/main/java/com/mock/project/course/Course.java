@@ -16,7 +16,11 @@ public class Course implements Serializable{
     private Long id;
     private String name;
 
-    public Course() {}
+    public Course(){}
+
+    public Course(String name) {
+        this.name = name;
+    }
     
     public Course(Long id, String name) {
         this.id = id;
