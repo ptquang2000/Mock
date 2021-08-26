@@ -62,7 +62,7 @@ body{
         width: 100%;
     }
   }
-  @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .content {
       --spacing: 15px;
       --columns: 1;
