@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +26,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     auth.authenticationProvider(authenticationProvider());
+  }
+
+  @Bean
+  public AuthenticationSuccessHandler successHandler() {
+      SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
+      handler.setUseReferer(true);
+      return handler;
   }
 
   @Override
@@ -41,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     .formLogin()
       .permitAll()
       .loginProcessingUrl("/login")
+      .successHandler(successHandler())
     .and()
     // .logout()
     //   .permitAll()

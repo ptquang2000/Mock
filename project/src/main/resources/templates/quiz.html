@@ -46,7 +46,8 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <button>Login</button>
+                        <button sec:authorize="isAnonymous()">Login</button>
+                        <button sec:authorize="isAuthenticated()">Logout</button>
                     </li>
                 </ul>
             </div>
