@@ -27,6 +27,10 @@ public class Course implements Serializable{
         this.name = name;
     }
 
+    public Course(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

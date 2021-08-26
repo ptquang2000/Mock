@@ -5,6 +5,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,6 +63,16 @@ public class PageController {
     @RequestParam(value = "lessonID", required = true) String id){
     quizFormService.processForm(quizForm, Long.parseLong(id));
     return "redirect:/?lessonID="+id;
+  }
+  @PostMapping("/delete-course")
+  public String deleteCourse(@RequestParam(value = "id") String id){
+    courseFormService.processForm(Long.parseLong(id));
+    return "redirect:/";
+  }
+  @PostMapping("/delete-quiz")
+  public String deleteQuiz(@RequestParam(value = "id") String id, @RequestParam(value="lessonID") String ID){
+    quizFormService.processForm(Long.parseLong(id));
+    return "redirect:/?lessonID="+ID;
   }
   @Bean
   public RestTemplate restTemplate(RestTemplateBuilder builder) {

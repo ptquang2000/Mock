@@ -47,6 +47,10 @@ public class Quiz {
     public Quiz(){
 
     }
+
+    public Quiz(Long id){
+        this.id = id;
+    }
   
     public Quiz(Long idCourse,String question,String ans1,String ans2,String ans3,String ans4,int ans) {
         this.idCourse = idCourse;

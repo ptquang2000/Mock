@@ -15,6 +15,12 @@ content.addEventListener('click', e => {
     for (let i =0; i < radios.length; i++)
       radios[i].disabled = true
   }
+  if (answer.className.toLowerCase() == 'remove btn'){
+    const question = e.target.closest('.question')
+    const id = question.id
+    const form = question.querySelector('.removeForm')
+    form.submit()
+  }
 })
 
 const quizlet = document.querySelector("body > div.menu-bar > div.logo")

@@ -198,7 +198,10 @@
     <div class="courselist">
         <div class="selection" th:each="course : ${courses}" th:id="${course.id}">
             <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-            <img sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+            <img class="remove btn"sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+            <form name="removeCourse" th:action="@{/remove-course}" method="POST" style="display: none;">
+                <input type="submit" value="removeCourse">
+            </form>
             <h2 th:text="${course.name}"></h2>
         </div>
     </div>

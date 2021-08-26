@@ -46,6 +46,20 @@ public class QuizFormService {
     return restTemplate.exchange("http://localhost:8080/quizzes", HttpMethod.POST, httpEntity, Quiz.class).getBody();
   }
 
+  public void processForm(Long id){
+    HttpHeaders httpHeaders = generateHeaders();
+    try{
+      deleteQuiz(new Quiz(id), httpHeaders);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private void deleteQuiz(Quiz quiz, HttpHeaders httpHeaders) throws JsonProcessingException {
+    HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(quiz), httpHeaders);
+    restTemplate.exchange("http://localhost:8080/quizzes", HttpMethod.DELETE, httpEntity, Quiz.class).getBody();
+  }
+
   private HttpHeaders generateHeaders() {
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     MyUserDetails user = (MyUserDetails) auth.getPrincipal();

@@ -39,7 +39,7 @@
                         <button class="login btn" sec:authorize="isAnonymous()">Login</button>
                         <button class="logout btn" sec:authorize="isAuthenticated()">Logout</button>
                          <form name="logoutForm" th:action="@{/logout}" method="POST" style="display: none;">
-                            <input type="submit" value="logout">
+                            <input type="submit" value="logout" style="display: none;">
                         </form>
                     </li>
                 </ul>
@@ -64,12 +64,18 @@
             <!--danh sách câu hỏi-->
             <th:block th:each="quiz,iter : ${quizzes}">
 
-                <div class="question" th:answer="${quiz.ans}">
+                <div class="question" th:answer="${quiz.ans}" th:id="${quiz.id}">
                     <div class="q-head">
                         <p class="num">
                             <span th:text="Question + ${iter.index + 1}" th:remove="tag"></span>
-                            <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-                            <img sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                            <img class="update btn" sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
+                            <form class="updateForm" th:action="@{/update-quiz}" method="PUT" style="display: none;">
+                                <input type="submit" value="update" style="display: none;">
+                            </form>
+                            <img class="remove btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                            <form class="removeForm" th:action="@{/delete-quiz?id=} + ${quiz.id}+'&lessonID='+${quiz.idCourse}" method="POST" style="display: none;">
+                                <input type="submit" value="remove" style="display: none;">
+                            </form>
                         </p>
                         <p class="q-test" th:text="${quiz.question}"></p>
                     </div>

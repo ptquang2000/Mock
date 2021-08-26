@@ -37,7 +37,19 @@ public class CourseFormService {
       return  e.getMessage();
     }
   }
+  public void processForm(Long id){
+    HttpHeaders httpHeaders = generateHeaders();
+    try{
+      deleteCourse(new Course(id), httpHeaders);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
+  private void deleteCourse(Course course, HttpHeaders httpHeaders) throws JsonProcessingException {
+    HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(course), httpHeaders);
+    restTemplate.exchange("http://localhost:8080/courses", HttpMethod.DELETE, httpEntity, Course.class).getBody();
+  }
   private Course addCourse(Course quiz, HttpHeaders httpHeaders) throws JsonProcessingException {
     HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(quiz), httpHeaders);
     return restTemplate.exchange("http://localhost:8080/courses", HttpMethod.POST, httpEntity, Course.class).getBody();
