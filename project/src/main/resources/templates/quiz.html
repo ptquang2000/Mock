@@ -48,7 +48,7 @@
         <script src="js/login.js"></script>
         <!--Tiêu đề-->
         <div class="page-title">
-            <img src="./image/image.jpg" alt="Hinh bia">
+            <img src="Mock/project/src/main/resources/static/image/image.jpg" alt="Hinh bia">
             <div class="text">
                 <div class="title">
                     <h1 th:text="${course}"></h1>
@@ -68,8 +68,8 @@
                     <div class="q-head">
                         <p class="num">
                             <span th:text="Question + ${iter.index + 1}" th:remove="tag"></span>
-                            <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-                            <img sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                            <img sec:authorize="isAuthenticated()" src="Mock/project/src/main/resources/static/image/pencil.png" align="right">
+                            <img sec:authorize="isAuthenticated()" src="Mock/project/src/main/resources/static/image/bin.png" align="right">
                         </p>
                         <p class="q-test" th:text="${quiz.question}"></p>
                     </div>
