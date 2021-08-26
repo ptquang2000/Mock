@@ -1,4 +1,4 @@
-package com.mock.project;
+package com.mock.project.quiz;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.mock.project.course.Course;
 
 @Entity
 @Table (name="quiz")

@@ -1,4 +1,4 @@
-package com.mock.project;
+package com.mock.project.quiz;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.mock.project;
+package com.mock.project.course;
 
 import java.io.Serializable;
 
