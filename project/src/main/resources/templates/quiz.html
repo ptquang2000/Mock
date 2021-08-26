@@ -1,8 +1,8 @@
 <html  xmlns:th="https://www.thymeleaf.org">
     <head>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/addQuizz.css">
-        <link rel="stylesheet" href="css/quiz.css">
+        <link rel="stylesheet" href="https://github.com/ptquang2000/Mock/project/src/main/resources/static/css/addQuizz.css">
+        <link rel="stylesheet" href="https://github.com/ptquang2000/Mock/project/src/main/resources/static/css/quiz.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Risque&display=swap" rel="stylesheet">
@@ -48,7 +48,7 @@
         <script src="js/login.js"></script>
         <!--Tiêu đề-->
         <div class="page-title">
-            <img src="./image/image.jpg" alt="Hinh bia">
+            <img src="https://github.com/ptquang2000/Mock/project/src/main/resources/static/image/image.jpg" alt="Hinh bia">
             <div class="text">
                 <div class="title">
                     <h1 th:text="${course}"></h1>
@@ -68,8 +68,8 @@
                     <div class="q-head">
                         <p class="num">
                             <span th:text="Question + ${iter.index + 1}" th:remove="tag"></span>
-                            <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-                            <img sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                            <img sec:authorize="isAuthenticated()" src="https://github.com/ptquang2000/Mock/project/src/main/resources/static/image/pencil.png" align="right">
+                            <img sec:authorize="isAuthenticated()" src="https://github.com/ptquang2000/Mock/project/src/main/resources/static/image/bin.png" align="right">
                         </p>
                         <p class="q-test" th:text="${quiz.question}"></p>
                     </div>
@@ -129,7 +129,7 @@
             <input type="submit" value="Save">
         </form>
     </div>
-    <script src="js/popup.js"></script>
-    <script src="js/quiz.js"></script>
+    <script src="https://github.com/ptquang2000/Mock/tree/main/project/src/main/resources/static/js/popup.js"></script>
+    <script src="https://github.com/ptquang2000/Mock/tree/main/project/src/main/resources/static/js/quiz.js"></script>
     </body>
 </html>
