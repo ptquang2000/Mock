@@ -25,8 +25,8 @@
             <img src="./image/image.jpg" alt="Hinh bia">
             <div class="text">
                 <div class="title">
-                    <h1>English</h1>
-                    20 questions
+                    <h1 th:text="${course}"></h1>
+                    <span th:text="${noQuiz} + ' questions'" th:remove="tag"></span>
                 </div>
             </div>  
         </div>
@@ -35,7 +35,7 @@
             <!--danh sách câu hỏi-->
             <th:block th:each="quiz,iter : ${quizzes}">
 
-                <div class="question">
+                <div class="question" th:answer="${quiz.ans}">
                     <div class="q-head">
                         <p class="num" th:text="Question + ${iter.index + 1}"></p>
                         <p class="q-test" th:text="${quiz.question}"></p>
@@ -58,7 +58,7 @@
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans4}" th:remove="tag"></span>
-                            <input type="radio" name="ans" id="ans4" value="${quiz.ans4}">
+                            <input type="radio" name="ans" id="ans4" th:value="${quiz.ans4}">
                             <span class="q-check"></span>
                         </label>
                     </div>

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,18 @@ public class Quiz {
     private String ans4;
     @Column(name = "ans")
     private int ans;
+
+    @ManyToOne
+    @JoinColumn(name="id_course", referencedColumnName = "id", insertable = false, updatable = false)
+    private Course course;
+
+    public Course getCourse() {
+        return this.course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
     
     public Quiz(){
 
@@ -98,6 +112,8 @@ public class Quiz {
             ", ans3='" + getAns3() + "'" +
             ", ans4='" + getAns4() + "'" +
             ", ans='" + getAns() + "'" +
+            ", course='" + getCourse() + "'" +
             "}";
     }
+
 }

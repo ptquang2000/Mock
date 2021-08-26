@@ -22,6 +22,7 @@ public class PageController {
         "http://localhost:8080/courses/" + id, Quiz[].class);
     model.addAttribute("quizzes", quizzes);
     model.addAttribute("noQuiz", quizzes.length);
+    model.addAttribute("course", quizzes[0].getCourse().getName());
     return "quiz";
   }
   @Bean
