@@ -24,15 +24,15 @@ CREATE TABLE course(
 GO
 INSERT dbo.course
         ( name )
-VALUES  ( N'java'  -- name - nvarchar(100)
+VALUES  ( N'Lesson 1'  -- name - nvarchar(100)
           )
 INSERT dbo.course
         ( name )
-VALUES  ( N'sql'  -- name - nvarchar(100)
+VALUES  ( N'Lesson 2'  -- name - nvarchar(100)
           )
 INSERT dbo.course
         ( name )
-VALUES  ( N'css'  -- name - nvarchar(100)
+VALUES  ( N'Lesson 3'  -- name - nvarchar(100)
           )
 GO
 CREATE TABLE quiz(
@@ -58,38 +58,38 @@ INSERT dbo.quiz
         )
 VALUES  (
           1 , -- id_course - int
-          'quiz 1' , -- question - ntext
-          'a' , -- ans1 - ntext
-          'b' , -- ans2 - ntext
-          'c' , -- ans3 - ntext
-          'd' , -- ans4 - ntext
+          'This quiz is a quiz?' , -- question - ntext
+          'Oh, really!' , -- ans1 - ntext
+          'Nah! Dont care' , -- ans2 - ntext
+          'Definitely a question' , -- ans3 - ntext
+          'Wait for it' , -- ans4 - ntext
           1  -- ans - int
         ),
 		(
           1 , -- id_course - int
-          'quiz 2' , -- question - ntext
-          'a' , -- ans1 - ntext
-          'b' , -- ans2 - ntext
-          'c' , -- ans3 - ntext
-          'd' , -- ans4 - ntext
+          'This quiz is a quiz?' , -- question - ntext
+          'Oh, really!' , -- ans1 - ntext
+          'Nah! Dont care' , -- ans2 - ntext
+          'Definitely a question' , -- ans3 - ntext
+          'Wait for it' , -- ans4 - ntext
           2  -- ans - int
         ),
 		(
           2 , -- id_course - int
-          'quiz 3' , -- question - ntext
-          'a' , -- ans1 - ntext
-          'b' , -- ans2 - ntext
-          'c' , -- ans3 - ntext
-          'd' , -- ans4 - ntext
+          'This quiz is a quiz?' , -- question - ntext
+          'Oh, really!' , -- ans1 - ntext
+          'Nah! Dont care' , -- ans2 - ntext
+          'Definitely a question' , -- ans3 - ntext
+          'Wait for it' , -- ans4 - ntext
           3  -- ans - int
         ),
 		(
           2 , -- id_course - int
-          'quiz 4' , -- question - ntext
-          'a' , -- ans1 - ntext
-          'b' , -- ans2 - ntext
-          'c' , -- ans3 - ntext
-          'd' , -- ans4 - ntext
+          'This quiz is a quiz?' , -- question - ntext
+          'Oh, really!' , -- ans1 - ntext
+          'Nah! Dont care' , -- ans2 - ntext
+          'Definitely a question' , -- ans3 - ntext
+          'Wait for it' , -- ans4 - ntext
           4  -- ans - int
         )
 GO

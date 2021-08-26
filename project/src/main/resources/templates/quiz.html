@@ -100,29 +100,29 @@
             </th:block>
         </div>
     <div class="form-to-add">
-        <form class="question-form" th:object="${quizForm}" th:action="@{/quiz-form}" method="POST">
+        <form class="question-form" th:object="${quizForm}" th:action="@{/quiz-form?lessonID=} + ${param.lessonID}" method="POST">
             <div class="question-name">
                 <label for="question-name">Question</label>
                 <input type="text" id="question-name" name="question-name" th:field="*{question}">
             </div>
             <div class="answers">
-                    <label for="ans1" class="ans1 radiobtn">1</label>
-                    <input type="text" id="ans1" name="ans1" th:field="*{ans1}">
-                    <label for="ans2" class="ans2 radiobtn" >2</label>
-                    <input type="text" id="ans2" name="ans2" th:field="*{ans2}">
-                    <label for="ans3" class="ans3 radiobtn">3</label>
-                    <input type="text" id="ans3" name="ans3" th:field="*{ans3}">
-                    <label for="ans4" class="ans4 radiobtn">4</label>
-                    <input type="text" id="ans4" name="ans4" th:field="*{ans4}">
+                <label for="ans1" class="ans1 radiobtn">1</label>
+                <input type="text" id="ans1" name="ans1" th:field="*{ans1}">
+                <label for="ans2" class="ans2 radiobtn" >2</label>
+                <input type="text" id="ans2" name="ans2" th:field="*{ans2}">
+                <label for="ans3" class="ans3 radiobtn">3</label>
+                <input type="text" id="ans3" name="ans3" th:field="*{ans3}">
+                <label for="ans4" class="ans4 radiobtn">4</label>
+                <input type="text" id="ans4" name="ans4" th:field="*{ans4}">
             </div>
             
             <div class="correct-answers">
                 <label for="correct-ans">Correct answer</label>
-                <select id="correct-ans" >
-                <option value="ans1" th:field="*{ans}">1</option>
-                <option value="ans2" th:field="*{ans}">2</option>
-                <option value="ans3" th:field="*{ans}">3</option>
-                <option value="ans4" th:field="*{ans}">4</option>
+                <select id="correct-ans" th:field="*{ans}">
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+                <option value="3" >3</option>
+                <option value="4" >4</option>
             </select>
             </div>
             

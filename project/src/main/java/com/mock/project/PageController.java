@@ -33,7 +33,8 @@ public class PageController {
   @AuthenticationPrincipal User user){
     model.addAttribute("quizForm", new QuizForm());
     if (id == null){
-      Course[] courses = restTemplate.getForObject("http://localhost:8080/courses", Course[].class);
+      Course[] courses = restTemplate.getForObject("http://localhost:8080/courses",
+      Course[].class);
       model.addAttribute("courses", courses);
       return "course";
     }
@@ -45,8 +46,12 @@ public class PageController {
     return "quiz";
   }
   @PostMapping("/quiz-form")
-  public String postQuiz(@ModelAttribute QuizForm quizForm, RedirectAttributes redirectAttributes){
-    return quizFormService.processForm(quizForm);
+  public String postQuiz(@ModelAttribute QuizForm quizForm, 
+    RedirectAttributes redirectAttributes, 
+    @RequestParam(value = "lessonID", required = true) String id){
+    if (quizFormService.processForm(quizForm, Long.parseLong(id)) == "Fail")
+      return "redirect:/?lessonID="+id+"&error=Fail";
+    return "redirect:/?lessonID="+id;
   }
   @Bean
   public RestTemplate restTemplate(RestTemplateBuilder builder) {

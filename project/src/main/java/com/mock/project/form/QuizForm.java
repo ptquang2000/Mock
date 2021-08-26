@@ -55,4 +55,16 @@ public class QuizForm {
   public void setAns(String ans) {
     this.ans = ans;
   }
+
+  @Override
+  public String toString() {
+    return "{" +
+      " question='" + getQuestion() + "'" +
+      ", ans1='" + getAns1() + "'" +
+      ", ans2='" + getAns2() + "'" +
+      ", ans3='" + getAns3() + "'" +
+      ", ans4='" + getAns4() + "'" +
+      ", ans='" + getAns() + "'" +
+      "}";
+  }
 }
