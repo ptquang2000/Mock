@@ -1,7 +1,8 @@
 .question-form{
+    background-color: white;
     display: grid;
     grid-template-rows: 1fr 1fr 0.1fr 0.1fr;
-    width: 450px;
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
     row-gap: 10px;
@@ -19,7 +20,7 @@ div.answers{
     padding-left: 5px;
 }
 
-body > form > div.question-name{
+body > div > form > div.question-name{
     display: grid;
     row-gap: 5px;
     padding-bottom: 5px;
@@ -35,14 +36,14 @@ body > form > div.question-name{
     margin-left: 50px;
 }
 
-body > form > div.correct-answers{
+body > div > form > div.correct-answers{
     display: block;
     margin: 0px auto;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: medium;
 }
 
-body > form > input[type=submit]{
+body > div > form > input[type=submit]{
     margin: 0px auto;
     width: 90px;
     padding: 5px 0;
@@ -53,7 +54,7 @@ body > form > input[type=submit]{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body > form > div.answers > label{
+body > div > form > div.answers > label{
     background-color: #C4C4C4;
     border-radius: 50%;
     width: 20px;
@@ -61,7 +62,7 @@ body > form > div.answers > label{
     text-align: center;
 }
 
-body > form > div.answers > input{
+body > div > form > div.answers > input{
     border: none;
     border-bottom: 1px solid ;
 }
@@ -71,7 +72,7 @@ body > form > div.answers > input{
     border-bottom: 1px solid ;
 }
 
-body > form > div.answers > input:focus{
+body > div > form > div.answers > input:focus{
     outline: none;
     border: none;
     border-bottom: 1px solid ;
