@@ -10,7 +10,8 @@ courseList.addEventListener('click', e => {
     form.submit()
   }
   else if (selection.className == 'selection'){
-    window.location.href = `http://localhost:8080?lessonID=${selection.id}`
+    const name = selection.querySelector('h2').textContent
+    window.location.href = `http://localhost:8080?lessonID=${selection.id}&lessonName=${name}`
   }
 })
 

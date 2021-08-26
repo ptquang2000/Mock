@@ -34,6 +34,7 @@ public class PageController {
   public String getPage(RestTemplate restTemplate,
   Model model,
   @RequestParam(value = "lessonID",required = false)String id,
+  @RequestParam(value = "lessonName", required = false)String name,
   @AuthenticationPrincipal User user){
     if (id == null){
       model.addAttribute("courseForm", new CourseForm());
@@ -47,7 +48,7 @@ public class PageController {
         "http://localhost:8080/courses/" + id, Quiz[].class);
     model.addAttribute("quizzes", quizzes);
     model.addAttribute("noQuiz", quizzes.length);
-    model.addAttribute("course", quizzes[0].getCourse().getName());
+    model.addAttribute("course", name);
     return "quiz";
   }
   @PostMapping("/course-form")
