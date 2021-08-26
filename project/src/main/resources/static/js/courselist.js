@@ -5,3 +5,4 @@ courseList.addEventListener('click', e => {
     window.location.href = `http://localhost:8080?lessonID=${selection.id}`
   }
 })
+

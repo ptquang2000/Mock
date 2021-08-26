@@ -16,3 +16,8 @@ content.addEventListener('click', e => {
       radios[i].disabled = true
   }
 })
+
+const quizlet = document.querySelector("body > div.menu-bar > div.logo")
+quizlet.addEventListener('click', e => {
+  window.location.href = `http://localhost:8080/`
+})
