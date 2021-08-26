@@ -46,8 +46,11 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <button sec:authorize="isAnonymous()">Login</button>
-                        <button sec:authorize="isAuthenticated()">Logout</button>
+                        <button class="login btn" sec:authorize="isAnonymous()">Login</button>
+                        <button class="logout btn" sec:authorize="isAuthenticated()">Logout</button>
+                         <form name="logoutForm" th:action="@{/logout}" method="POST" style="display: none;">
+                            <input type="submit" value="logout">
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -70,7 +73,11 @@
 
                 <div class="question" th:answer="${quiz.ans}">
                     <div class="q-head">
-                        <p class="num" th:text="Question + ${iter.index + 1}"></p>
+                        <p class="num">
+                            <span th:text="Question + ${iter.index + 1}" th:remove="tag"></span>
+                            <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
+                            <img sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                        </p>
                         <p class="q-test" th:text="${quiz.question}"></p>
                     </div>
                     <div class="q-ans">

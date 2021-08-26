@@ -12,6 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -30,9 +32,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Bean
   public AuthenticationSuccessHandler successHandler() {
-      SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
-      handler.setUseReferer(true);
-      return handler;
+    SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
+    handler.setUseReferer(true);
+    return handler;
+  }
+
+  @Bean
+  public LogoutSuccessHandler logoutSuccessHandler(){
+    SimpleUrlLogoutSuccessHandler handler = new SimpleUrlLogoutSuccessHandler();
+    handler.setUseReferer(true);
+    return handler;
   }
 
   @Override
@@ -52,11 +61,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       .loginProcessingUrl("/login")
       .successHandler(successHandler())
     .and()
-    // .logout()
-    //   .permitAll()
-    //   .logoutUrl("/administrator/logout")
-    //   .logoutSuccessUrl("/administrator/login?logout")
-    // .and()
+    .logout()
+      .permitAll()
+      .logoutUrl("/logout")
+      .logoutSuccessHandler(logoutSuccessHandler())
+    .and()
     .csrf().disable()
     ; 
   }
