@@ -1,5 +1,7 @@
 <html>
     <head>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="addQuizz.css">
         <link rel="stylesheet" href="css/quiz.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +68,9 @@
                 </div>
             </div>  
         </div>
+        <div class="add-btn">
+            <i class="fa fa-plus fa-100x"></i>
+        </div>
         <!--câu hỏi-->
         <div class="content">
             <!--danh sách câu hỏi-->
@@ -83,22 +88,22 @@
                     <div class="q-ans">
                         <label class="ans">
                             <span th:text="${quiz.ans1}" th:remove="tag"></span>
-                            <input type="radio" name="ans" id="ans1" th:value="${quiz.ans1}">
+                            <input type="radio" th:name="ans+${iter.index}" id="ans1" th:value="${quiz.ans1}">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans2}" th:remove="tag"></span>
-                            <input type="radio" name="ans" id="ans2" th:value="${quiz.ans2}">
+                            <input type="radio" th:name="ans+${iter.index}" id="ans2" th:value="${quiz.ans2}">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans3}" th:remove="tag"></span>
-                            <input type="radio" name="ans" id="ans3" th:value="${quiz.ans3}">
+                            <input type="radio" th:name="ans+${iter.index}" id="ans3" th:value="${quiz.ans3}">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans4}" th:remove="tag"></span>
-                            <input type="radio" name="ans" id="ans4" th:value="${quiz.ans4}">
+                            <input type="radio" th:name="ans+${iter.index}" id="ans4" th:value="${quiz.ans4}">
                             <span class="q-check"></span>
                         </label>
                     </div>
@@ -106,7 +111,37 @@
 
             </th:block>
         </div>
-           
+    <div class="form-to-add">
+        <form class="question-form">
+            <div class="question-name">
+                <label for="question-name">Question</label>
+                <input type="text" id="question-name" name="question-name">
+            </div>
+            <div class="answers">
+                    <label for="ans1" class="ans1 radiobtn">1</label>
+                    <input type="text" id="ans1" name="ans1">
+                    <label for="ans2" class="ans2 radiobtn">2</label>
+                    <input type="text" id="ans2" name="ans2">
+                    <label for="ans3" class="ans3 radiobtn">3</label>
+                    <input type="text" id="ans3" name="ans3">
+                    <label for="ans4" class="ans4 radiobtn">4</label>
+                    <input type="text" id="ans4" name="ans4">
+            </div>
+            
+            <div class="correct-answers">
+                <label for="correct-ans">Correct answer</label>
+                <select id="correct-ans">
+                <option value="ans1">1</option>
+                <option value="ans2">2</option>
+                <option value="ans3">3</option>
+                <option value="ans4">4</option>
+            </select>
+            </div>
+            
+            <input type="submit" value="Save">
+        </form>
+    </div>
+    <script src="popup.js"></script>
     <script src="quiz.js"></script>
     </body>
 </html>
