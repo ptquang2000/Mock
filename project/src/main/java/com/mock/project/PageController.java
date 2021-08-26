@@ -7,12 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+
+import java.security.Principal;
+
 import org.springframework.boot.web.client.RestTemplateBuilder;
 
 @Controller
 public class PageController {
   @GetMapping("")
-  public String getLesson(RestTemplate restTemplate, Model model, @RequestParam(value = "lessonID",required = false)String id){
+  public String getLesson(RestTemplate restTemplate, Model model, @RequestParam(value = "lessonID",required = false)String id, Principal principal){
+    System.out.println(principal);
     if (id == null){
       Course[] courses = restTemplate.getForObject("http://localhost:8080/courses", Course[].class);
       model.addAttribute("courses", courses);
