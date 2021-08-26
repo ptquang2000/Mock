@@ -11,5 +11,4 @@ document.addEventListener('click', e =>{
   if (formChild != null) return
   if (loginForm.style.display == 'block' && e.target != loginButton)
     loginForm.style.display = ''
-
 })
