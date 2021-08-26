@@ -6,37 +6,25 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Risque&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <title th:text="${course}"></title>
-        <style>
-            .loginform{
-                display: none;
-                width: 40vw;
-                height:40vw;
-                position: fixed;
-                top:16vw;
-                left:30%;
-                padding:0vw;
-                width: 300px;
-                background-color: #E5E5E5;
-                z-index: 1;
-            }
-        </style>
     </head>
-    <body>
+    <body>   
         <!-- Login form -->
         <div class="loginform">
-            <form th:action="@{/login}" method="POST">
-                <div style="padding-bottom: 1vw; padding-top: 1vw;">
+            <div class="login-title">Log in to Quizlet</div>
+            <form th:action="@{/login}" method="POST" class="fillform">
+                <div>
                     <span>Email</span>
                 </div>
-                <input class="form-control" name="username" type="text" placeholder=""></input>
-                <div style="padding-bottom: 1vw; padding-top: 1vw;">
+                <input name="username" type="text"></input>
+                <div>
                     <span>Password</span>
                 </div>
-                <input class="form-control" name="password" type="password" placeholder=""></input>
+                <input name="password" type="password" ></input>
                 <div class="loginbutton">
-                    <input class="form-control" name="loginButton" type="submit" value="Login" style="background-color:green; color:white; width: 30%; "></input>
+                    <input class="login-btn" name="loginButton" type="submit" value="Log in"></input>
                 </div>
             </form>
         </div>

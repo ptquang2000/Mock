@@ -1,4 +1,5 @@
 const loginButton = document.querySelector('.login.btn')
+const loginForm = document.querySelector('.loginform')
 if (loginButton != null){
   loginButton.addEventListener('click', e => {
     if (loginForm.style.display == '')
@@ -14,7 +15,7 @@ if (logoutButton != null){
     logoutForm.submit()
   })
 }
-const loginForm = document.querySelector('.loginform')
+
 document.addEventListener('click', e =>{
   const formChild = e.target.closest('.loginform')
   if (formChild != null) return
