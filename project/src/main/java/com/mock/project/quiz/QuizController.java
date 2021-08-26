@@ -1,4 +1,4 @@
-package com.mock.project;
+package com.mock.project.quiz;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,17 +29,17 @@ public class QuizController implements Serializable{
         return e.getMessage();
     }
 
-    @RequestMapping(value="/quiz", method=RequestMethod.POST)
+    @RequestMapping(value="/quizzes", method=RequestMethod.POST)
     public Quiz addQuiz(@RequestBody Quiz quiz){
         return quizService.addQuiz(quiz);
     }
 
-    @RequestMapping(value="/quiz", method=RequestMethod.PUT)
+    @RequestMapping(value="/quizzes", method=RequestMethod.PUT)
     public Quiz updateQuiz(@RequestBody Quiz quiz){
         return quizService.updateQuiz(quiz);
     }
 
-    @RequestMapping(value="/quiz", method=RequestMethod.DELETE)
+    @RequestMapping(value="/quizzes", method=RequestMethod.DELETE)
     public void deleteQuiz(@RequestBody Quiz quiz){
         quizService.deleteQuiz(quiz);
     }

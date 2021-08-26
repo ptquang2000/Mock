@@ -15,7 +15,6 @@ if (logoutButton != null){
     logoutForm.submit()
   })
 }
-
 document.addEventListener('click', e =>{
   const formChild = e.target.closest('.loginform')
   if (formChild != null) return

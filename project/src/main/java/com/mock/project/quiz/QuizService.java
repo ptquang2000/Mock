@@ -1,6 +1,8 @@
-package com.mock.project;
+package com.mock.project.quiz;
 
 import java.util.List;
+
+import com.mock.project.course.CourseRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
