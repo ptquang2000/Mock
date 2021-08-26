@@ -1,9 +1,9 @@
 const addQuiz = document.querySelector(".add-btn")
 const popUp = document.querySelector("body > div.form-to-add")
-addQuiz.addEventListener("click",e=>{
-    popUp.classList.toggle("active")
-})
-
+if (addQuiz != null)
+    addQuiz.addEventListener("click",e=>{
+        popUp.classList.toggle("active")
+    })
 document.addEventListener("click",e=>{
     const a = e.target.closest(".form-to-add")
     
