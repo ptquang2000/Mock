@@ -1,5 +1,5 @@
 # Mock
-Mock
+A product for creating, doing quizzes in each lessons.
 ## Rest Api
 #### GET METHOD
 Get all courses
