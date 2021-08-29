@@ -1,7 +1,20 @@
 package com.mock.project.form;
+import java.io.Serializable;
 
-public class CourseForm {
+public class CourseForm implements Serializable{
+  private String id;
+
   private String name;
+
+  public CourseForm(){};
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public String getName() {
     return this.name;
@@ -15,7 +28,8 @@ public class CourseForm {
   @Override
   public String toString() {
     return "{" +
-      " name='" + getName() + "'" +
+      " id='" + getId() + "'" +
+      ", name='" + getName() + "'" +
       "}";
   }
 

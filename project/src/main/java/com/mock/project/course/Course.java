@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.mock.project.form.CourseForm;
+
 @Entity
 @Table(name = "course")
 public class Course implements Serializable{
@@ -17,6 +19,11 @@ public class Course implements Serializable{
     private String name;
 
     public Course(){}
+
+    public Course(CourseForm courseForm){
+        this.id = Long.parseLong(courseForm.getId());
+        this.name = courseForm.getName();
+    }
 
     public Course(String name) {
         this.name = name;

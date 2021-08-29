@@ -45,13 +45,28 @@ public class CourseFormService {
       e.printStackTrace();
     }
   }
+  public void processForm(Course course, String action){
+    HttpHeaders httpHeaders = generateHeaders();
+    try{
+      if (action.equals("remove"))
+        deleteCourse(course, httpHeaders);
+      else if (action.equals("update"))
+        updateCourse(course, httpHeaders);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
+  private void updateCourse(Course course, HttpHeaders httpHeaders) throws JsonProcessingException {
+    HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(course), httpHeaders);
+    restTemplate.exchange("http://localhost:8080/courses", HttpMethod.PUT, httpEntity, Course.class).getBody();
+  }
   private void deleteCourse(Course course, HttpHeaders httpHeaders) throws JsonProcessingException {
     HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(course), httpHeaders);
     restTemplate.exchange("http://localhost:8080/courses", HttpMethod.DELETE, httpEntity, Course.class).getBody();
   }
-  private Course addCourse(Course quiz, HttpHeaders httpHeaders) throws JsonProcessingException {
-    HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(quiz), httpHeaders);
+  private Course addCourse(Course course, HttpHeaders httpHeaders) throws JsonProcessingException {
+    HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(course), httpHeaders);
     return restTemplate.exchange("http://localhost:8080/courses", HttpMethod.POST, httpEntity, Course.class).getBody();
   }
 

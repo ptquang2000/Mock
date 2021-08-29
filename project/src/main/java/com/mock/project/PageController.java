@@ -1,6 +1,7 @@
 package com.mock.project;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,11 @@ public class PageController {
   private QuizFormService quizFormService;
   @Autowired
   private CourseFormService courseFormService;
+
+  @PostMapping("/login-fail")
+  public String loginFail(FormLoginConfigurer<?> config){
+    return "redirect:/";
+  }
 
   @GetMapping("")
   public String getPage(RestTemplate restTemplate,
@@ -64,21 +70,25 @@ public class PageController {
     quizFormService.processForm(quizForm, Long.parseLong(id));
     return "redirect:/?lessonID="+id;
   }
-  @PostMapping("/delete-course")
-  public String deleteCourse(@RequestParam(value = "id") String id){
-    courseFormService.processForm(Long.parseLong(id));
-    return "redirect:/";
-  }
   @PostMapping("/delete-quiz")
   public String deleteQuiz(@RequestParam(value = "id") String id, @RequestParam(value="lessonID") String ID){
     quizFormService.processForm(Long.parseLong(id));
     return "redirect:/?lessonID="+ID;
+  }
+  @PostMapping("/quiz-action")
+  public String postQuizAction(@RequestParam(value = "action") String action,Quiz quiz){
+    quizFormService.processForm(quiz, action);
+    return "redirect:/";
+  }
+  @PostMapping("/course-action")
+  public String postCourseAction(@RequestParam(value = "action") String action,Course course){
+    courseFormService.processForm(course, action);
+    return "redirect:/";
   }
   @Bean
   public RestTemplate restTemplate(RestTemplateBuilder builder) {
     return builder.build();
   }
 }
-
 
 

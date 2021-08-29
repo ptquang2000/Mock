@@ -54,6 +54,10 @@ public class QuizFormService {
       e.printStackTrace();
     }
   }
+  private Quiz updateQuiz(Quiz quiz, HttpHeaders httpHeaders) throws JsonProcessingException {
+    HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(quiz), httpHeaders);
+    return restTemplate.exchange("http://localhost:8080/quizzes", HttpMethod.PUT, httpEntity, Quiz.class).getBody();
+  }
 
   private void deleteQuiz(Quiz quiz, HttpHeaders httpHeaders) throws JsonProcessingException {
     HttpEntity<?> httpEntity = new HttpEntity<Object>(objectMapper.writeValueAsString(quiz), httpHeaders);
@@ -73,5 +77,17 @@ public class QuizFormService {
     headers.setContentType(MediaType.APPLICATION_JSON);
     headers.add("Authorization", "Basic " + base64Creds);
     return headers;
+  }
+
+  public void processForm(Quiz quiz, String action) {
+    HttpHeaders httpHeaders = generateHeaders();
+    try{
+      if (action.equals("remove"))
+        deleteQuiz(quiz, httpHeaders);
+      else if (action.equals("update"))
+        updateQuiz(quiz, httpHeaders);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }

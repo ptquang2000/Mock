@@ -201,14 +201,22 @@
     </div>
 
     <div class="courselist">
-        <div class="selection" th:each="course : ${courses}" th:id="${course.id}">
-            <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-            <img class="remove-btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
-            <form class="removeCourse" th:action="@{/delete-course?id=}+${course.id}" method="POST" style="display: none;">
-                <input type="submit" value="removeCourse">
+        <th:block th:each="course : ${courses}">
+            <form class="selection" sec:authorize="isAuthenticated()"  method="POST" th:id="${course.id}">
+                <img class="update-btn" sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
+                <img class="remove-btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                <input type="text" th:value="${course.id}" name="id" style="display: none;" th:formaction="@{/course-action}">
+                <input type="submit" class="remove-input" name="action" value="remove" style="display: none;" th:formaction="@{/course-action}">
+                <input type="submit" class="update-input" name="action" value="update" style="display: none;" th:formaction="@{/course-action}">
+                <input type="text" th:value="${course.name}" name="name" th:formaction="@{/course-action}" th:placeholder="${course.name}">
             </form>
-            <h2 th:text="${course.name}"></h2>
-        </div>
+            <div class="selection" sec:authorize="isAnonymous()" th:id="${course.id}">
+                <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
+                <img class="remove-btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                <h2 th:text="${course.name}"></h2>
+            </div>
+        </th:block>
+
     </div>
     
     <div class="add-btn" sec:authorize="isAuthenticated()">

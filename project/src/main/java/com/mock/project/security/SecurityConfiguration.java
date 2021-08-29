@@ -10,7 +10,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
@@ -38,6 +40,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
+  public AuthenticationFailureHandler failureHandler(){
+    SimpleUrlAuthenticationFailureHandler handler = new SimpleUrlAuthenticationFailureHandler();
+    handler.setUseForward(true);
+    return handler;
+  }
+
+  @Bean
   public LogoutSuccessHandler logoutSuccessHandler(){
     SimpleUrlLogoutSuccessHandler handler = new SimpleUrlLogoutSuccessHandler();
     handler.setUseReferer(true);
@@ -60,6 +69,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       .permitAll()
       .loginProcessingUrl("/login")
       .successHandler(successHandler())
+      .failureForwardUrl("/login-fail")
     .and()
     .logout()
       .permitAll()
