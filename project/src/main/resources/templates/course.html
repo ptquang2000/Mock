@@ -167,6 +167,21 @@
             display: block;
         }
 
+        input[name='name']{
+            border: none;
+            font-size: calc(1.325rem + .9vw);
+            margin-top: 0;
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        input[name='name']:focus{
+            outline: none;
+        }
     </style>
   </head>
   <body>
@@ -203,8 +218,8 @@
     <div class="courselist">
         <th:block th:each="course : ${courses}">
             <form class="selection" sec:authorize="isAuthenticated()"  method="POST" th:id="${course.id}">
-                <img class="update-btn" sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-                <img class="remove-btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
+                <img class="update-btn" src="./image/pencil.png" align="right">
+                <img class="remove-btn" src="./image/bin.png" align="right">
                 <input type="text" th:value="${course.id}" name="id" style="display: none;" th:formaction="@{/course-action}">
                 <input type="submit" class="remove-input" name="action" value="remove" style="display: none;" th:formaction="@{/course-action}">
                 <input type="submit" class="update-input" name="action" value="update" style="display: none;" th:formaction="@{/course-action}">
@@ -234,7 +249,7 @@
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="js/courselist.js"> </script>
+    <script src="js/course.js"> </script>
     <script src="js/login.js"></script>
     <script src="js/popup.js"></script>
   </body>

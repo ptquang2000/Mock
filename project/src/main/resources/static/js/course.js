@@ -13,9 +13,11 @@ courseList.addEventListener('click', e => {
     input.click()
   }
   else if (selection.className == 'selection'){
-    const name = selection.querySelector('h2').textContent
-    const id = selection.getAttribute('id')
-    window.location.href = `http://localhost:8080?lessonID=${id}&lessonName=${name}`
+    const name = selection.querySelector('h2')
+    if (name != null){
+      const id = selection.getAttribute('id')
+      window.location.href = `http://localhost:8080?lessonID=${id}&lessonName=${name.textContent}`
+    }
   }
 })
 

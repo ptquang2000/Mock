@@ -64,40 +64,73 @@
             <!--danh sách câu hỏi-->
             <th:block th:each="quiz,iter : ${quizzes}">
 
-                <div class="question" th:answer="${quiz.ans}" th:id="${quiz.id}">
+                <form class="question" th:answer="${quiz.ans}" th:id="${quiz.id}" sec:authorize="isAuthenticated()" method="POST">
                     <div class="q-head">
                         <p class="num">
                             <span th:text="Question + ${iter.index + 1}" th:remove="tag"></span>
-                            <img class="update btn" sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-                            <form class="updateForm" th:action="@{/update-quiz}" method="PUT" style="display: none;">
-                                <input type="submit" value="update" style="display: none;">
-                            </form>
+                            <img class="update btn" src="./image/pencil.png" align="right">
+                            <input type="submit"  class="update-input" value="update" name="action" style="display: none;" th:formaction="@{/quiz-action}">
                             <img class="remove btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
-                            <form class="removeForm" th:action="@{/delete-quiz?id=} + ${quiz.id}+'&lessonID='+${quiz.idCourse}" method="POST" style="display: none;">
-                                <input type="submit" value="remove" style="display: none;">
-                            </form>
+                            <input type="submit"  class="remove-input" value="remove" name="action" style="display: none;" th:formaction="@{/quiz-action}">
+                        </p>
+                        <p class="q-test" th:text="${quiz.question}" contenteditable="true"></p>
+                        <input style="display: none;" class="q-question" type="text" th:value="${quiz.question}" name="question" th:formaction="@{/quiz-action}">
+                    </div>
+                    <div class="q-ans">
+                        <label class="ans">
+                            <input type="radio" name="ans" value="1">
+                            <span class="ans-span" th:text="${quiz.ans1}" contenteditable="true"></span>
+                            <input class="ans-input" type="text" name="ans1" value="">
+                            <span class="q-check"></span>
+                        </label>
+                        <label class="ans">
+                            <input type="radio" name="ans" value="2">
+                            <span class="ans-span" th:text="${quiz.ans2}" contenteditable="true"></span>
+                            <input class="ans-input" type="text" name="ans2" value="">
+                            <span class="q-check"></span>
+                        </label>
+                        <label class="ans">
+                            <input type="radio" name="ans" value="3">
+                            <span class="ans-span" th:text="${quiz.ans3}" contenteditable="true"></span>
+                            <input class="ans-input" type="text" name="ans3" value="">
+                            <span class="q-check"></span>
+                        </label>
+                        <label class="ans">
+                            <input type="radio" name="ans" value="4">
+                            <span class="ans-span" th:text="${quiz.ans4}" contenteditable="true"></span>
+                            <input class="ans-input" type="text" name="ans4" value="">
+                            <span class="q-check"></span>
+                        </label>
+                    </div>
+                    <input type="text" name="quiz" th:value="${quiz.id}" th:formaction="@{/quiz-action}" style="display: none;">
+                </form>
+
+                <div class="question" th:answer="${quiz.ans}" th:id="${quiz.id}" sec:authorize="isAnonymous()">
+                    <div class="q-head">
+                        <p class="num">
+                            <span th:text="Question + ${iter.index + 1}" th:remove="tag"></span>
                         </p>
                         <p class="q-test" th:text="${quiz.question}"></p>
                     </div>
                     <div class="q-ans">
                         <label class="ans">
                             <span th:text="${quiz.ans1}" th:remove="tag"></span>
-                            <input type="radio" th:name="ans+${iter.index}" id="ans1" th:value="${quiz.ans1}">
+                            <input type="radio" th:name="ans+${iter.index}" th:value="${quiz.ans1}">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans2}" th:remove="tag"></span>
-                            <input type="radio" th:name="ans+${iter.index}" id="ans2" th:value="${quiz.ans2}">
+                            <input type="radio" th:name="ans+${iter.index}" th:value="${quiz.ans2}">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans3}" th:remove="tag"></span>
-                            <input type="radio" th:name="ans+${iter.index}" id="ans3" th:value="${quiz.ans3}">
+                            <input type="radio" th:name="ans+${iter.index}" th:value="${quiz.ans3}">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <span th:text="${quiz.ans4}" th:remove="tag"></span>
-                            <input type="radio" th:name="ans+${iter.index}" id="ans4" th:value="${quiz.ans4}">
+                            <input type="radio" th:name="ans+${iter.index}" th:value="${quiz.ans4}">
                             <span class="q-check"></span>
                         </label>
                     </div>

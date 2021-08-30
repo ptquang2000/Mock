@@ -70,18 +70,13 @@ public class PageController {
     quizFormService.processForm(quizForm, Long.parseLong(id));
     return "redirect:/?lessonID="+id;
   }
-  @PostMapping("/delete-quiz")
-  public String deleteQuiz(@RequestParam(value = "id") String id, @RequestParam(value="lessonID") String ID){
-    quizFormService.processForm(Long.parseLong(id));
-    return "redirect:/?lessonID="+ID;
-  }
   @PostMapping("/quiz-action")
-  public String postQuizAction(@RequestParam(value = "action") String action,Quiz quiz){
+  public String postQuizAction(@RequestParam(value = "action") String action, Quiz quiz){
     quizFormService.processForm(quiz, action);
-    return "redirect:/";
+    return "redirect:/?lessonID=" + Long.toString(quiz.getCourse().getId()) + "&lessonName=" + quiz.getCourse().getName();
   }
   @PostMapping("/course-action")
-  public String postCourseAction(@RequestParam(value = "action") String action,Course course){
+  public String postCourseAction(@RequestParam(value = "action") String action, Course course){
     courseFormService.processForm(course, action);
     return "redirect:/";
   }
