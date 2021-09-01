@@ -86,6 +86,8 @@ public class QuizFormService {
         deleteQuiz(quiz, httpHeaders);
       else if (action.equals("update"))
         updateQuiz(quiz, httpHeaders);
+      else if (action.equals("insert"))
+        addQuiz(quiz, httpHeaders);
     } catch (Exception e) {
       e.printStackTrace();
     }

@@ -1,13 +1,13 @@
 <html  xmlns:th="https://www.thymeleaf.org">
     <head>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/addQuizz.css">
         <link rel="stylesheet" href="css/quiz.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Risque&display=swap" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/addQuizz.css">
         <title th:text="${course}"></title>
     </head>
     <body>   
@@ -56,9 +56,6 @@
                 </div>
             </div>  
         </div>
-        <div class="add-btn" sec:authorize="isAuthenticated()">
-            <i class="fa fa-plus fa-100x"></i>
-        </div>
         <!--câu hỏi-->
         <div class="content">
             <!--danh sách câu hỏi-->
@@ -80,29 +77,30 @@
                         <label class="ans">
                             <input type="radio" name="ans" value="1">
                             <span class="ans-span" th:text="${quiz.ans1}" contenteditable="true"></span>
-                            <input class="ans-input" type="text" name="ans1" value="">
+                            <input class="ans-input" type="text" name="ans1" value="" style="display: none;">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <input type="radio" name="ans" value="2">
                             <span class="ans-span" th:text="${quiz.ans2}" contenteditable="true"></span>
-                            <input class="ans-input" type="text" name="ans2" value="">
+                            <input class="ans-input" type="text" name="ans2" value="" style="display: none;">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <input type="radio" name="ans" value="3">
                             <span class="ans-span" th:text="${quiz.ans3}" contenteditable="true"></span>
-                            <input class="ans-input" type="text" name="ans3" value="">
+                            <input class="ans-input" type="text" name="ans3" value="" style="display: none;">
                             <span class="q-check"></span>
                         </label>
                         <label class="ans">
                             <input type="radio" name="ans" value="4">
                             <span class="ans-span" th:text="${quiz.ans4}" contenteditable="true"></span>
-                            <input class="ans-input" type="text" name="ans4" value="">
+                            <input class="ans-input" type="text" name="ans4" value="" style="display: none;">
                             <span class="q-check"></span>
                         </label>
                     </div>
                     <input type="text" name="quiz" th:value="${quiz.id}" th:formaction="@{/quiz-action}" style="display: none;">
+
                 </form>
 
                 <div class="question" th:answer="${quiz.ans}" th:id="${quiz.id}" sec:authorize="isAnonymous()">
@@ -137,6 +135,13 @@
                 </div>
 
             </th:block>
+
+            <div class="add-wrapper">
+                <div class="add-btn" sec:authorize="isAuthenticated()">
+                    <i class="fa fa-plus fa-100x"></i>
+                </div>
+            </div>
+
         </div>
     <div class="form-to-add">
         <form class="question-form" th:object="${quizForm}" th:action="@{/quiz-form?lessonID=} + ${param.lessonID}" method="POST">
@@ -168,7 +173,6 @@
             <input type="submit" value="Save">
         </form>
     </div>
-    <script src="js/popup.js"></script>
     <script src="js/quiz.js"></script>
     </body>
 </html>

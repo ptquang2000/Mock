@@ -52,6 +52,8 @@ public class CourseFormService {
         deleteCourse(course, httpHeaders);
       else if (action.equals("update"))
         updateCourse(course, httpHeaders);
+      else if (action.equals("insert"))
+        addCourse(course, httpHeaders);
     } catch (Exception e) {
       e.printStackTrace();
     }

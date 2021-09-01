@@ -83,16 +83,26 @@ body > div > form > div.answers > input:focus{
     border: none;
     border-bottom: 1px solid ;
 }
+.add-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: calc(calc(100% / var(--columns)) - var(--spacing));
+    margin-left: var(--spacing);
+    margin-bottom: var(--spacing);
+    place-self: center;
+    align-items: center;
+}
 .add-btn{
-    color: white;  
-    background-color: A4D166;
-    width: 50px;
-    height: 50px;
+    color: white;
+    background-color: #A4D166;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    text-align: center;
     font-size: 30px;
-    margin: 0 auto;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   body > div.add-btn > i{
       position: relative;
       top: 24%;

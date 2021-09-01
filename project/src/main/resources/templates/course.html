@@ -61,8 +61,8 @@
             background-color: white;
             display: none;
             width: 300px;
-            left: 520px;
-            top: 20%;
+            left: 43%;
+            top: 40%;
             border: solid;
             padding: 5px;
             z-index: 1;
@@ -98,21 +98,6 @@
         }
         body > div.loginform > form > input[type=password]:nth-child(4){
             border-color: solid #A1A1A1;
-        }
-
-        .add-btn{
-            position: absolute; 
-            top: 160px;
-            display: inline-block;
-            left: 50%;
-            transform: translate(-50%, 0%);
-            color: white;  
-            background-color: #A4D166;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
         }
 
         .form-to-add{
@@ -182,6 +167,18 @@
         input[name='name']:focus{
             outline: none;
         }
+
+        .add-btn{
+            transform: translate(-50%, 0%);
+            color: white;  
+            background-color: #A4D166;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            place-self: center;
+        }
     </style>
   </head>
   <body>
@@ -226,31 +223,18 @@
                 <input type="text" th:value="${course.name}" name="name" th:formaction="@{/course-action}" th:placeholder="${course.name}">
             </form>
             <div class="selection" sec:authorize="isAnonymous()" th:id="${course.id}">
-                <img sec:authorize="isAuthenticated()" src="./image/pencil.png" align="right">
-                <img class="remove-btn" sec:authorize="isAuthenticated()" src="./image/bin.png" align="right">
                 <h2 th:text="${course.name}"></h2>
             </div>
         </th:block>
 
+        <div class="add-btn" sec:authorize="isAuthenticated()">
+            <i class="fa fa-plus fa-100x"></i>
+        </div>
+
     </div>
     
-    <div class="add-btn" sec:authorize="isAuthenticated()">
-        <i class="fa fa-plus fa-100x"></i>
-    </div>
-    
-    <div class="form-to-add">
-        <form class="course-form" th:object="${courseForm}" th:action="@{/course-form}" method="POST">
-            <div class="course-title">Create a new lesson</div>
-            <div>
-                <label for="course-name" class="course-name">Name</label>
-                <input type="text" id="course-name" name="course-name" th:field="*{name}">
-            </div> 
-            <input type="submit" value="Create">
-        </form>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/course.js"> </script>
     <script src="js/login.js"></script>
-    <script src="js/popup.js"></script>
   </body>
 </html>

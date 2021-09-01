@@ -1,9 +1,7 @@
-package com.mock.project;
+package com.mock.project.page;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,8 +38,7 @@ public class PageController {
   public String getPage(RestTemplate restTemplate,
   Model model,
   @RequestParam(value = "lessonID",required = false)String id,
-  @RequestParam(value = "lessonName", required = false)String name,
-  @AuthenticationPrincipal User user){
+  @RequestParam(value = "lessonName", required = false)String name){
     if (id == null){
       model.addAttribute("courseForm", new CourseForm());
       Course[] courses = restTemplate.getForObject("http://localhost:8080/courses",
@@ -56,19 +53,6 @@ public class PageController {
     model.addAttribute("noQuiz", quizzes.length);
     model.addAttribute("course", name);
     return "quiz";
-  }
-  @PostMapping("/course-form")
-  public String postCourse(@ModelAttribute CourseForm courseForm, 
-    RedirectAttributes redirectAttributes){
-    courseFormService.processForm(courseForm);
-    return "redirect:/";
-  }
-  @PostMapping("/quiz-form")
-  public String postQuiz(@ModelAttribute QuizForm quizForm, 
-    RedirectAttributes redirectAttributes, 
-    @RequestParam(value = "lessonID", required = true) String id){
-    quizFormService.processForm(quizForm, Long.parseLong(id));
-    return "redirect:/?lessonID="+id;
   }
   @PostMapping("/quiz-action")
   public String postQuizAction(@RequestParam(value = "action") String action, Quiz quiz){
